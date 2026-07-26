@@ -37,7 +37,7 @@ resource "aws_instance" "web" {
   tags = {
     Name = "$instance_name"
   }
-
+}
 
 
 EOF
@@ -71,7 +71,7 @@ echo ""
 	terraform init
 read -p " Want to perform Terraform validate ( y/n ) " validate
 read -p " Want to perform Terraform Plan     ( y/n ) " plan
-read -p " Want to perform Terraform aplly    ( y/n ) " apply
+read -p " Want to perform Terraform apply    ( y/n ) " apply
 
 echo ""
 
