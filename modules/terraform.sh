@@ -50,9 +50,9 @@ sudo yum install terraform
 
 
 echo ""
-echo " Initializing terraform ........ "
+#echo " Initializing terraform ........ "
 
-	terraform init 
+#	terraform init 
 
 echo ""
 echo ""

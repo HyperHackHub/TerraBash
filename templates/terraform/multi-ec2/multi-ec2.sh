@@ -14,14 +14,14 @@ read -p " Instance Type		: " instance_type
 read -p " Instance Name 	: " instance_name
 read -p " No. of instances	: " no_instance
 
-mkdir -p "../../../output/$project_name"
+#mkdir -p "../../../output/$project_name"
 
 #cd "../../../output/$project_name"
 
 #---------------------------------- Provider.tf --------------------------------------------------
 
 
-cat > "../../../output/$project_name/provider.tf" <<EOF
+cat > provider.tf <<EOF
 provider "aws" {
   region     = "$aws_region"
   access_key = "$access_key"
@@ -30,22 +30,46 @@ provider "aws" {
 EOF
 
 
+cat > main.tf <<EOF
 
-
-
-cat > "../../../output/$project_name/main.tf" <<EOF
 resource "aws_instance" "web" {
-
   count = $no_instance
-
-  ami           = "$AMI_ID"
+  ami           = " $AMI_ID"
   instance_type = "$instance_type"
-
   tags = {
-    Name = "${instance_name}-\${count.index + 1}"
+     Name = "${instance_name}-\${count.index + 1}"
   }
-}
+
+
+
 EOF
+
+
+#cat > "../../../output/$project_name/provider.tf" <<EOF
+#provider "aws" {
+ # region     = "$aws_region"
+  #access_key = "$access_key"
+  #secret_key = "$secret_key"
+#}
+#EOF
+
+
+
+
+
+#cat > "../../../output/$project_name/main.tf" <<EOF
+#resource "aws_instance" "web" {
+
+ # count = $no_instance
+
+ # ami           = "$AMI_ID"
+ # instance_type = "$instance_type"
+
+  #tags = {
+   # Name = "${instance_name}-\${count.index + 1}"
+  #}
+#}
+#EOF
 
 
 
@@ -69,8 +93,10 @@ EOF
 #EOF
 
 echo ""
-echo "All essential files are generated to $project_name "
+#echo "All essential files are generated to $project_name "
 echo ""
+
+	terraform init
 
 read -p " Want to perform Terraform validate ( y/n ) " validate
 read -p " Want to perform Terraform Plan     ( y/n ) " plan
