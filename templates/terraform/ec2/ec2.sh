@@ -32,7 +32,7 @@ EOF
 cat > main.tf <<EOF
 
 resource "aws_instance" "web" {
-  ami           = " $AMI_ID"
+  ami           = "$AMI_ID"
   instance_type = "$instance_type"
   tags = {
     Name = "$instance_name"
