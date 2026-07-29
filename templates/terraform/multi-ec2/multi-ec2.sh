@@ -5,7 +5,7 @@ echo "============================== Multi EC2 Generator =======================
 echo ""
 echo ""
 
-read -p " Project Name  	: " project_name
+#read -p " Project Name  	: " project_name
 read -p " AWS Region    	: " aws_region
 read -p " Access Key    	: " access_key
 read -p " Secret Key    	: " secret_key
@@ -34,13 +34,13 @@ cat > main.tf <<EOF
 
 resource "aws_instance" "web" {
   count = $no_instance
-  ami           = " $AMI_ID"
+  ami           = "$AMI_ID"
   instance_type = "$instance_type"
   tags = {
      Name = "${instance_name}-\${count.index + 1}"
   }
 
-
+}
 
 EOF
 
