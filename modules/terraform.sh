@@ -52,6 +52,7 @@ sudo yum install terraform
 echo ""
 #echo " Initializing terraform ........ "
 
+	clear
 #	terraform init 
 
 echo ""
@@ -59,13 +60,23 @@ echo ""
 
 #-------------------------------------- TerraForm Generator -------------------------------------
 
-echo "================================= TerraForm Generator======================================"
-echo ""
-echo ""
+echo "===========================================================================================" 
+echo""			
+echo""
 
+echo " 					TerraForm Generator 					"
+
+echo ""
+echo ""
+echo " =========================================================================================="
+
+echo ""
+echo ""
 echo "1. Basic EC2 "
 echo "2. Multiple EC2"
 echo "3. S3 Bucket "
+
+echo ""
 
 read -p "Select Option : " res
 
@@ -79,6 +90,7 @@ echo ""
 
 	elif [ "$res" = "2" ]; then 
 
+		
 		bash templates/terraform/multi-ec2/multi-ec2.sh
 
 	elif [ "$res" = "3" ]; then 
@@ -92,7 +104,8 @@ echo ""
 	fi
 
 	
-
+	
+	
 
 
 

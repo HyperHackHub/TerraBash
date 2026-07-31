@@ -1,17 +1,26 @@
 #!/bin/bash
 
+clear
 
-echo "============================== Basic EC2 Generator ==========================================="
+echo "================================================================================================"
+
 echo ""
 echo ""
 
+echo " 					Basic EC2 Generator 					      "
+
+echo ""
+echo ""
+
+echo "================================================================================================"
+echo ""
 #read -p " Project Name  : " project_name
-read -p " AWS Region   	: " aws_region
-read -p " Access Key   	: " access_key
-read -p " Secret Key   	: " secret_key
-read -p " AMI ID       	: " AMI_ID
-read -p " Instance Type : " instance_type
-read -p " Instance Name : " instance_name
+read -p " 1. AWS Region     : " aws_region
+read -p " 2. Access Key     : " access_key
+read -p " 3. Secret Key     : " secret_key
+read -p " 4. AMI ID         : " AMI_ID
+read -p " 5. Instance Type  : " instance_type
+read -p " 6. Instance Name  : " instance_name
 
 
 #mkdir -p "../../../output/$project_name"
