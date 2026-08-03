@@ -14,11 +14,9 @@ echo ""
 echo " 1. Kali linux "
 echo " 2. Red Hat Linux"
 echo ""
-echo " Select your os to proceed :"
+read -p " Select your os to proceed :" os
 echo ""
 echo ""
-
-
 
 echo ""
 echo ""
