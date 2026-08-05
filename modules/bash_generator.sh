@@ -1,9 +1,25 @@
 #!/bin/bash
 
+# COLORS
+###############################################################################
+
+BLACK='\033[0;30m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
+
+NC='\033[0m'        # No Color
+
+
+
 echo "================================================================================================"
 echo ""
 echo ""
-echo " 					Bash Generator 					      "
+echo -e "${CYAN}				Bash Generator 					 ${NC}     "
 echo ""
 echo ""
 echo "================================================================================================"
@@ -11,28 +27,58 @@ echo "==========================================================================
 echo ""
 echo ""
 
-echo " 1. Kali linux "
-echo " 2. Red Hat Linux"
+echo -e "${YELLOW}1.${NC} Kali linux "
+echo -e "${YELLOW}2.${NC} Red Hat Linux"
 echo ""
 read -p " Select your os to proceed :" os
 echo ""
 echo ""
+	if [ "$os" = "1" ]; then
 
+	echo -e "${BLUE} Selected OS : Kali linux ${NC}"
+
+	elif [ "$os" = "2" ]; then 
+	
+	echo -e "${BLUE} Selected OS : Red Hat Linux ${NC}"
+
+
+	fi 
 echo ""
 echo ""
 
-echo " 1. System Update & Upgrade "
-echo " 2. Change File permission "
-echo " 3. Move Files & Folders "
-echo " 4. Rename Files & Folders "
-echo " 5. Configure SSH "
-echo " 6. Install Package "
-echo " 7. More coming soon....."
+echo -e "${YELLOW}1.${NC} System Update & Upgrade "
+echo -e "${YELLOW}2.${NC} Change File Ownership "
+echo -e "${YELLOW}3.${NC} Move Files & Folders "
+echo -e "${YELLOW}4.${NC} Rename Files & Folders "
+echo -e "${YELLOW}5.${NC} Configure SSH "
+echo -e "${YELLOW}6.${NC} Install Package "
+echo -e "${YELLOW}1.${NC} Back "
+echo -e "${YELLOW}7.${NC} More coming soon....."
 echo ""
 read -p " Choose one option to proceed : " ans
 echo ""
 
-#	if [ "$ans" = "1" ]; then 
+	if [ "$ans" = "1" ]; then 
+		
+		if [ "$os" = "1" ]; then 
 
-#		sudo 
+			sudo apt update && sudo apt upgrade -y
+
+		elif [ "$os" = "2" ]; then
+
+			sudo yum update && sudo yum upgrade -y
+
+		fi
+
+
+	elif [ "$ans" = "2" ]; then
+		
+		 clear
+		 bash modules/file_folder.sh
+	
+
+	fi
+
+	
+		 
 
