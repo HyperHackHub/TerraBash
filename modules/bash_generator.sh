@@ -74,8 +74,17 @@ echo ""
 	elif [ "$ans" = "2" ]; then
 		
 		 clear
-		 bash modules/file_folder.sh
+		 bash templates/bash/user/file_folder.sh
 	
+	elif [ "$ans" = "3" ]; then
+
+		clear 
+		bash templates/bash/move-rename/move-rename.sh
+
+	elif [ "$ans" = "4" ]; then
+
+		clear
+		bash templates/bash/move-rename/move-rename.sh
 
 	fi
 
