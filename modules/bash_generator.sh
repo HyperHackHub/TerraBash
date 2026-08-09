@@ -86,6 +86,9 @@ echo ""
 		clear
 		bash templates/bash/move-rename/move-rename.sh
 
+	elif [ "$ans" = "5" ]; then 
+		bash templates/bash/ssh/ssh.sh
+
 	fi
 
 	
