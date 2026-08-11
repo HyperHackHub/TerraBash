@@ -37,6 +37,10 @@ echo ""
 
 	if [ "$ans" =  "1" ]; then 
 		
+		read -p " Enter Your OS name (Ubuntu/kali linux/rhel) : " ans1
+		
+		if [ "$ans1" = "Ubuntu" ]; then
+
 		echo ""
 		echo -e " ${BLUE} Installing SSH on your system........${NC}"
 		echo ""
@@ -46,6 +50,36 @@ echo ""
 		sudo apt install openssh-server -y
 		
 		sudo systemctl enable --now ssh
+	
+		elif [ "$ans1" = "kali linux" ]; then
+
+		echo ""
+		echo -e " ${BLUE} Installing SSH on your system........${NC}"
+		echo ""
+
+		sudo apt update 
+
+		sudo apt install openssh-server -y
+		
+		sudo systemctl enable --now ssh
+
+		elif [ "$ans1" = "rhel" ]; then
+
+		echo ""
+		echo -e " ${BLUE} Installing SSH on your system........${NC}"
+		echo ""
+
+		sudo dnf update 
+
+		sudo dnf install openssh-server -y
+		
+		sudo systemctl enable --now ssh
+
+		else 
+
+			echo -e "${RED} Please enter valid OS name ${NC}"
+
+		fi 
 
 	elif [ "$ans" = "2" ]; then
 
