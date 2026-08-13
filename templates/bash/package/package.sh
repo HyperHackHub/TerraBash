@@ -52,11 +52,11 @@ echo ""
 echo ""
 echo ""
 
-echo -e "${YELLOW}1.${NC} Install SSH "
-echo -e "${YELLOW}2.${NC} Generate SSH Key "
-echo -e "${YELLOW}3.${NC} Back"
-echo ""
+#echo -e "${YELLOW}1.${NC} Install SSH "
+#echo -e "${YELLOW}2.${NC} Generate SSH Key "
+#echo -e "${YELLOW}3.${NC} Back"
+#echo ""
 read -p " please enter your package name to install :" ans
 echo ""
 
-    sudo apt $ans 
+    sudo apt install $ans 

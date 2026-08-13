@@ -39,12 +39,12 @@ echo ""
 
     sudo systemctl start nginx
 
-    sudo systemctl enable --now nginx\
+    sudo systemctl enable --now nginx
 
-    echo "Nginx status:"
+    echo -e "${BLUE} Nginx status: ${NC}"
     sudo systemctl status nginx
     
-    
+
     
     
     
