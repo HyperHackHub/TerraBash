@@ -98,5 +98,10 @@ echo ""
 		echo -e "${GREEN} Your SSH Keys Saved here - /home/username/.ssh/ ${NC}"
 		echo ""
 
+	elif [ "$ans" = "3" ]; then
+
+		clear
+		bash modules/bash_generator.sh
+
 
 	fi 

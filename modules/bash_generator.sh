@@ -52,14 +52,16 @@ echo -e "${YELLOW}3.${NC} Move Files & Folders "
 echo -e "${YELLOW}4.${NC} Rename Files & Folders "
 echo -e "${YELLOW}5.${NC} Configure SSH "
 echo -e "${YELLOW}6.${NC} Install Package "
-echo -e "${YELLOW}1.${NC} Back "
-echo -e "${YELLOW}7.${NC} More coming soon....."
+echo -e "${YELLOW}7.${NC} Configure Nginx "
+echo -e "${YELLOW}0.${NC} Back "
+echo -e "${YELLOW}8.${NC} More coming soon....."
 echo ""
 read -p " Choose one option to proceed : " ans
 echo ""
 
 	if [ "$ans" = "1" ]; then 
-		
+
+
 		if [ "$os" = "1" ]; then 
 
 			sudo apt update && sudo apt upgrade -y
@@ -87,7 +89,29 @@ echo ""
 		bash templates/bash/move-rename/move-rename.sh
 
 	elif [ "$ans" = "5" ]; then 
+		clear
 		bash templates/bash/ssh/ssh.sh
+
+	elif [ "$ans" = "0" ]; then
+		
+		clear
+		bash terrabash.sh	
+
+	elif [ "$ans" = "6" ]; then
+
+		clear
+		bash templates/bash/package/package.sh
+		#echo "Its Working "
+
+	elif [ "$ans" = "7" ]; then
+
+		clear
+		bash templates/bash/nginx-httpd/nginx.sh
+
+	elif [ "$ans" = "8" ]; then
+
+		clear
+		bash templates/bash/more/more.sh	
 
 	fi
 
