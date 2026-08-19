@@ -31,12 +31,13 @@ echo ""
 read -p " Enter Bucket Name ( It should be unique) : " ans
 read -p " Enter Environment Name : " env
 
+cat > main.tf <<EOF
 
 resource "aws_s3_bucket" "example" {
   bucket = "$ans"
 
   tags = {
     Name        = "$ans"
-    Environment = "Dev"
-  }
+    Environment = "$env"
+ }
 }
