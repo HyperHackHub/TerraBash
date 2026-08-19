@@ -43,3 +43,40 @@ resource "aws_s3_bucket" "example" {
 }
 
 EOF
+
+
+echo ""
+#echo "All essential files are generated to $project_name "
+echo ""
+	terraform init
+read -p " Want to perform Terraform validate ( y/n ) " validate
+read -p " Want to perform Terraform Plan     ( y/n ) " plan
+read -p " Want to perform Terraform apply    ( y/n ) " apply
+
+echo ""
+
+	if [ "$validate" = "y" ]; then 
+
+		terraform validate
+
+		if [ "$plan" = "y" ]; then
+
+		terraform plan
+
+		fi
+
+
+		if [ "$apply" = "y" ]; then
+
+		terraform apply -auto-approve
+
+		echo " Everthing has configured . "
+
+		fi 
+
+	else 
+		
+		echo " Thanks for using TerraBash v1.0 ( Don't forget to do this step manually )"
+		exit 
+
+	fi 
