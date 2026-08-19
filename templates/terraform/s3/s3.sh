@@ -28,6 +28,30 @@ echo "==========================================================================
 echo ""
 echo ""
 
+#echo ""
+#read -p " Project Name  : " project_name
+read -p " 1. AWS Region     : " aws_region
+read -p " 2. Access Key     : " access_key
+read -p " 3. Secret Key     : " secret_key
+read -p " 4. AMI ID         : " AMI_ID
+read -p " 5. Instance Type  : " instance_type
+read -p " 6. Instance Name  : " instance_name
+
+
+#mkdir -p "../../../output/$project_name"
+
+#cd "../../../output/$project_name"
+
+#---------------------------------- Provider.tf --------------------------------------------------
+
+cat > provider.tf <<EOF
+provider "aws" {
+  region     = "$aws_region"
+  access_key = "$access_key"
+  secret_key = "$secret_key"
+}
+EOF
+
 read -p " Enter Bucket Name ( It should be unique) : " ans
 read -p " Enter Environment Name : " env
 
