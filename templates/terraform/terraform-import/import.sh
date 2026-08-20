@@ -40,15 +40,16 @@ echo ""
     if [ "$ans" = 1 ]; then 
 
         read -p "Enter EC2 Instance ID: " id
-
+        read -p "Enter Your Resource Address: " address
+ 
         terraform init
 
-        if terraform import aws_instance.imported "$id"; then
+        if terraform import aws_instance."$address" "$id"; then
 
             echo "Successfully imported"
 
             terraform state list
-            terraform state show aws_instance.imported
+            terraform state show aws_instance."$address"
 
         read -p "Want to perform Terraform Plan (y/n): " plan
 
@@ -79,33 +80,33 @@ echo ""
 		   # fi
 
 
-    elif [ "$ans" = 2 ]; then 
+    # elif [ "$ans" = 2 ]; then 
 
-        read -p "Enter S3 Bucket Name: " id2
+     #   read -p "Enter S3 Bucket Name: " id2
 
-        terraform init
+      #  terraform init
 
-        terraform import aws_s3_bucket.manual_bucket "$id2"
+       # terraform import aws_s3_bucket.manual_bucket "$id2"
 
-        terraform state list
+       # terraform state list
 
-        terraform state show aws_s3_bucket.manual_bucket
+    #    terraform state show aws_s3_bucket.manual_bucket
 
-        echo ""
+     #   echo ""
 
-        echo -e "${GREEN} Succesfully Worked ${NC} "
+      #  echo -e "${GREEN} Succesfully Worked ${NC} "
 
-        read -p " Want to perform Terraform Plan     ( y/n ) " plan
+      #  read -p " Want to perform Terraform Plan     ( y/n ) " plan
 
-            if [ "$plan" = "y" ]; then
+       #     if [ "$plan" = "y" ]; then
 
-		        terraform plan
+		#        terraform plan
 
-		    fi
+		 #   fi
 
-    elif [ "$ans" = 3 ]; then 
+   # elif [ "$ans" = 3 ]; then 
 
-        bash terrabash.sh
+    #    bash terrabash.sh
     
     
-    fi
+    #fi 
