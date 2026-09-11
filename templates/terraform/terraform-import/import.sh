@@ -37,6 +37,13 @@ echo ""
 read -p " Please choose one option to proceed : " ans
 echo ""
 
+
+
+    if [ "$ans" = 1 ]; then 
+
+        read -p "Enter EC2 Instance ID: " id
+        read -p "Enter Your Resource Address: " address
+
     # Add resource block
     cat >> main.tf <<EOF
 
@@ -44,12 +51,6 @@ echo ""
     }
 
 EOF
-
-    if [ "$ans" = 1 ]; then 
-
-        read -p "Enter EC2 Instance ID: " id
-        read -p "Enter Your Resource Address: " address
-
         
         terraform init
 
