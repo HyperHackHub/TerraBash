@@ -120,3 +120,7 @@ echo " Step 4: Install Ansible "
 echo " Step 5: Verify Ansible installation "
     ansible --version
 
+else 
+    echo " Thanks for using Ansible Generator v1.0 "
+fi
+
