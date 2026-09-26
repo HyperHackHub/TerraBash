@@ -124,3 +124,64 @@ else
     echo " Thanks for using Ansible Generator v1.0 "
 fi
 
+
+echo ""
+echo " Want to generate ssh key ? "
+
+read -p " Enter y to generate or n for exit : " ssh
+
+echo ""
+
+if [ "$ssh" = "y" ]; then 
+
+	sudo ssh-keygen -t rsa -b 2048
+
+#PUB_KEY=$(find ~/.ssh -type f -name "*.pub")
+#cat "$PUB_KEY" | ssh user@"$ip" \
+ # 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys'
+
+
+else 
+	echo " Thanks for using Ansible Generator v1.0 "
+fi
+
+
+
+
+echo " Want to add Secondary Instance in your host ini file ? "
+
+read -p " Enter the Public IP of Secondary Instance : " ip
+
+PUB_KEY=$(find ~/.ssh -type f -name "*.pub")
+cat "$PUB_KEY" | ssh user@"$ip" \
+  'mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys'
+
+echo " Adding the Secondary Instance in your host ini file ."
+
+
+echo "[servers]" > host.ini
+echo "$ip" >> host.ini
+
+echo ""
+
+echo " Want to run ping test to check the connectivity between Primary and Secondary Instance ? "
+
+read -p " Enter y to run ping test or n for exit : " ping
+
+if [ "$ping" = "y" ]; then
+
+
+
+	read -p "Enter group name to run ping test ( By Default "all" ): " group
+
+	echo " Running ping test between Primary and Secondary Instance ."
+
+	if [ -z "$group" ]; then
+		group="all"
+	fi
+	ansible "$group" -i host.ini -m ping
+
+else 
+	echo " Thanks for using Ansible Generator v1.0 "
+fi
+
